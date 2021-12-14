@@ -50,14 +50,15 @@
                     </div>
                 {% endfor %}
 
-                <div id="exam" class="collapse">
-                    Click to expand elements within the collapse div
-                </div>
             </div>
+            
+            {% if user.is_authenticated %}
+                <button data-toggle="collapse" data-target="#demo">Click to expand elements within the collapse div</button>
 
-            <div id="exam" class="collapse">
-                Click to expand elements within the collapse div
-            </div>
+                <div id="demo" class="collapse">
+                    text in collapse
+                </div>
+            {% endif %}
 
             
 
