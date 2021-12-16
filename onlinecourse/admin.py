@@ -1,6 +1,6 @@
 from django.contrib import admin
 # <HINT> Import any new Models here
-from .models import Course, Lesson, Instructor, Learner, Question, Choice
+from .models import Course, Lesson, Instructor, Learner, Question, Choice, Submission
 
 # <HINT> Register QuestionInline and ChoiceInline classes here
 
@@ -34,6 +34,10 @@ class QuestionAdmin(admin.ModelAdmin):
 
 class ChoiceAdmin(admin.ModelAdmin):
     list_display = ['question', 'choice_content']
+
+class SubmissionAdmin(admin.ModelAdmin):
+    
+    fields = ['enrollment', 'choices']
     
 
 # <HINT> Register Question and Choice models here
@@ -46,3 +50,4 @@ admin.site.register(Learner)
 admin.site.register(Question, QuestionAdmin)
 admin.site.register(Choice, ChoiceAdmin)
 
+admin.site.register(Submission, SubmissionAdmin)

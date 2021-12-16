@@ -145,9 +145,9 @@ def show_exam_result(request, course_id, submission_id):
     course = get_object_or_404(Course, pk=course_id)
     submission = get_object_or_404(Submission, pk = submission_id)
 
-    selected_ids = submission.objects.choices
+    selected_ids = submission.choices
     
-    if course.objects.question.is_get_score(selected_ids):
+    if course.objects.is_get_score(selected_ids):
         course.objects.question.question_grade = 1
     
     total_score = course.objects.question_set.filter(question_grade = 1).count()
