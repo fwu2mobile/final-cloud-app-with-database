@@ -147,8 +147,9 @@ def show_exam_result(request, course_id, submission_id):
 
     selected_ids = submission.choices
     
-    if course.objects.is_get_score(selected_ids):
+    if course.question_set.is_get_score(selected_ids):
         course.objects.question.question_grade = 1
+
     
     total_score = course.objects.question_set.filter(question_grade = 1).count()
 
