@@ -153,6 +153,7 @@ def show_exam_result(request, course_id, submission_id):
     
     total_score = course.objects.question_set.filter(question_grade = 1).count()
 
+    context['course'] = course
     context['course_id'] = course_id
     context['selected_ids'] = selected_ids
     context['grade'] = total_score
